@@ -1,0 +1,50 @@
+project: ppi-PPMI-gcn
+method: random
+program: cv_wandb_4ML.py
+metric:
+  name: val_loss
+  goal: minimize
+parameters:
+  n_folds:
+    value: 10
+  n_epochs:
+    value: 150
+  lr:
+    distribution: log_uniform_values
+    max: 0.1 # -2.3025850929940455
+    min: 0.0005 # -9.210340371976182
+  weight_decay:
+    distribution: log_uniform_values
+    max: 0.2 # -0.6931471805599453
+    min: 0.0002 # -9.210340371976182
+  cl1_hidden_units:
+    distribution: categorical
+    values:
+      - 8
+      - 16
+      - 32
+      - 64
+  cl2_hidden_units:
+    distribution: categorical
+    values:
+      - 8
+      - 16
+      - 32
+  ll_out_units:
+    value: 2
+  dropout:
+    distribution: uniform
+    max: 0.7
+    min: 0
+  lrscheduler_factor:
+    value: 0.5
+  model_name:
+    value: "GAT_3p"
+  heads:
+    distribution: categorical
+    values:
+      - 2
+      - 3
+      - 5
+  K_cheby:
+    value: 3
