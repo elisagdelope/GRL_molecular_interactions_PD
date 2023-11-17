@@ -1,0 +1,55 @@
+project: mmi-LUXPARK-gat_uw
+method: random
+program: cv_wandb.py
+metric:
+  name: val_loss
+  goal: minimize
+parameters:
+  n_folds:
+    value: 10
+  n_epochs:
+    value: 700
+  lr:
+    distribution: log_uniform_values
+    max: 0.1 
+    min: 0.001 
+  weight_decay:
+    distribution: log_uniform_values
+    max: 0.05 
+    min: 0.000005 
+  cl1_hidden_units:
+    distribution: categorical
+    values:
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+  cl2_hidden_units:
+    distribution: categorical
+    values:
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+  ll_out_units:
+    value: 2
+  dropout:
+    distribution: uniform
+    max: 0.3
+    min: 0
+  lrscheduler_factor:
+    value: 0.75
+  model_name:
+    value: "GAT_3p_uw"
+  heads:
+    distribution: categorical
+    values:
+      - 2
+      - 3
+      - 5
+  K_cheby:
+    value: 3
