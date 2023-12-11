@@ -1,4 +1,3 @@
-
 Scripts to perform graph representation learning modelling on molecular interactions networks of transcriptomics (protein-protein interactions) and metabolomics (metabolite-metabolite interactions) data from the PPMI and the luxPARK cohort, respectively. The models on metabolomics data can be applied to the entire luxPARK cohort, or to a subset of *de novo* patients.
 
 ### Data pre-processing, prior to ML modelling
@@ -11,7 +10,7 @@ This script performs unsupervised filters to generate data for ML modelling of s
 ##### Building_network_data_4ML.ipynb
 A jupyter notebok that shows how to build a PPI network from STRING database files matching a matrix of pre-processed transcriptomics data.
 
-* ppmi_data4ML_class.R employs as input transcriptomics and phenotypical data resulting from previous pre-processing scripts described in repository *statistical_analyses_cross_long_PD* for **parsing data** and **Baseline (T0) PD/HC** (ppmi_filter_gene_expression.R, ppmi_norm_gene_expression.R, ppmi_generate_pathway_level.R). 
+* ppmi_data4ML_class.R employs as input transcriptomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (ppmi_filter_gene_expression.R, ppmi_norm_gene_expression.R, ppmi_generate_pathway_level.R). 
 
 
 #### luxpark_analyses 
@@ -19,7 +18,7 @@ A jupyter notebok that shows how to build a PPI network from STRING database fil
 ##### Building_network_data.ipynb *
 A jupyter notebok that shows how to build a PPI network from STITCH or KEGG database files matching a matrix of (log-transformed) metabolomics data.
 
-* Unsupervised filters were not applied to metabolomics data. Building_network_data.ipynb employs as input metabolomics and phenotypical data resulting from previous pre-processing scripts described in repository *statistical_analyses_cross_long_PD* for **parsing data** and **Baseline (T0) PD/HC** (lx_extract_visit.R, lx_denovo_filter.R, lx_generate_pathway_level.R). 
+* Unsupervised filters were not applied to metabolomics data. Building_network_data.ipynb employs as input metabolomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (lx_extract_visit.R, lx_denovo_filter.R, lx_generate_pathway_level.R). 
 
 
 
