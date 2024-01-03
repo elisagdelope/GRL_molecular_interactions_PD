@@ -18,6 +18,25 @@ The main script to run the modelling pipeline, including model building, trainin
 * `plot_utils.py`: Functions to create plots about the training and validation, as well as to project the node (sample) embeddings in 2D and 3D. They were used for debugging and experimentation.
 * `wandb_config_*.yaml`: Config file for the hyperparameter search of each model.
 
+In addition, `cv_wandb.py` requires as input information from the topology of the molecular interaction networks, given by the following lines of code (to be replaced if pipeline implemented on a different dataset):
+
+```python
+rna_file = "../data/data_rnaseq_ppi_4ML.csv"
+labels_file = "../data/labels_4ML.csv"
+ppi_score_file = "../data/ppi_score_4ML.csv"
+adj_file = "../data/A_ppi_weighted_4ML.csv" 
+```
+```python
+metab_file = "../data/data_metab_mmi_STITCH_700.csv"
+labels_file = "../data/labels_4ML.csv"
+mmi_score_file = "../data/mmi_score_STITCH_700.csv"
+adj_file = "../data/A_mmi_weighted_STITCH_700.csv"
+```
+* `rna_file`, `metab_file`: Matrix of gene expression and metabolomics abundance (n x m). Rows being samples and columns representing molecules.
+* `labels_file`: Patient/control binary labels (n x 2), columns being sample id, diagnosis.
+* `ppi_score_file`, `mmi_score_file`: Edge list (e x 3), columns being molecule1, molecule2, weight. Each row defines an edge (interaction) in the network.
+* `adj_file`: Weighted adjacency matrix (n x n).
+
 <!--![MMI GNN schema](meta_data/schema_nn_mmi.png) -->
 <div align="center"><tr><td align="center" width="9999">
 <img src="meta_data/schema_nn_mmi.png" alt="Architecture of the GNN models using molecular interaction networks" width="70%" align="center">
@@ -32,12 +51,13 @@ Other scripts used for the modelling pipeline:
 In the PPMI cohort:
 * `Building_network_data_4ML.ipynb`: A jupyter notebok that shows how to build a PPI network from STRING database files matching a matrix of pre-processed transcriptomics data.
 * `ppmi_data4ML_class.R`: This script performs unsupervised filters to generate data for ML modelling of snapshot data (BL) from RNAseq data.
-* ppmi_data4ML_class.R employs as input transcriptomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (ppmi_filter_gene_expression.R, ppmi_norm_gene_expression.R, ppmi_generate_pathway_level.R). 
+*`ppmi_data4ML_class.R` employs as input transcriptomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (ppmi_filter_gene_expression.R, ppmi_norm_gene_expression.R, ppmi_generate_pathway_level.R). 
 
 In the LuxPARK cohort:
 * `Building_network_data.ipynb`: A jupyter notebok that shows how to build a MMI network from STITCH or KEGG database files matching a matrix of (log-transformed) metabolomics data.
 
-* Unsupervised filters were not applied to metabolomics data. Building_network_data.ipynb employs as input metabolomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (lx_extract_visit.R, lx_denovo_filter.R, lx_generate_pathway_level.R). 
+*Unsupervised filters were not applied to metabolomics data. 
+`Building_network_data.ipynb` employs as input metabolomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (lx_extract_visit.R, lx_denovo_filter.R, lx_generate_pathway_level.R). 
 
 
 
