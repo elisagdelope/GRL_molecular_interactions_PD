@@ -65,7 +65,7 @@ In the LuxPARK cohort:
 
 The code in this repository relies on [Weights & Biases](https://www.wandb.com/) (W&B) to keep track and organise the results of experiments. W&B software was responsible to conduct the hyperparameter search, and all the sweeps (needed for hyperparameter search) used are defined in the `wandb_config_*.yaml` files. All the runs and sweep definitions are publicly available at the [project's W&B page](https://wandb.ai/psn-metabolomics). Each of the sub-projects displays a different experiment (e.g., using a different model, or a different dataset).
 
-In particular, W&B sub-projects starting with *`psn_*`* reflect the implementation of this modelling pipeline (while those starting with *`ppi_*`* or *`mmi_*`* reflect the implementation of the pipeline described in repository [GRL_molecular_interactions_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/grl_molecular_interactions_pd)). [reports](https://wandb.ai/tjiagom/st_extra/reportlist) to briefly organise the main results of our experiments. 
+In particular, W&B sub-projects starting with *`ppi_*`* or *`mmi_*`* reflect the implementation of this modelling pipeline (while those starting with *`psn_*`* reflect the implementation of the pipeline described in repository [GRL_sample_similarity_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/grl_sample_similarity_pd)). 
 
 
 We recommend that a user wanting to run and extend our code first gets familiar with the [online documentation](https://docs.wandb.com/). As an example, one would create a sweep by running the following command in a terminal:
