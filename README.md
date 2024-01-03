@@ -49,12 +49,13 @@ Other scripts used for the modelling pipeline:
 ### Data pre-processing
 
 In the PPMI cohort:
-* `Building_network_data_4ML.ipynb`: A jupyter notebok that shows how to build a PPI network from STRING database files matching a matrix of pre-processed transcriptomics data.
+* `Building_network_data_4ML.ipynb`: A jupyter notebok that shows how to build a fully connected PPI network from STRING database files matching a matrix of pre-processed transcriptomics data.
 * `ppmi_data4ML_class.R`: This script performs unsupervised filters to generate data for ML modelling of snapshot data (BL) from RNAseq data.
 *`ppmi_data4ML_class.R` employs as input transcriptomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (ppmi_filter_gene_expression.R, ppmi_norm_gene_expression.R, ppmi_generate_pathway_level.R). 
 
 In the LuxPARK cohort:
-* `Building_network_data.ipynb`: A jupyter notebok that shows how to build a MMI network from STITCH or KEGG database files matching a matrix of (log-transformed) metabolomics data.
+* `STITCH_cleansing.ipynb`, `KEGG_cleansing.ipynb`: Perform prunning in the original network of interactions to get only edges with medium confidence score in STITCH (>700). They also filter molecules mapping both to the metabolomics matrix and the MMI network, merging annotations based on multiple identifiers: PubChem, KEGG, ChEBI, inchikeys, CAS, SMILES.
+* `Building_network_data.ipynb`: A jupyter notebok that shows how to build a fully connected MMI network from pre-processed STITCH or KEGG database files matching a matrix of (log-transformed) metabolomics data.
 
 *Unsupervised filters were not applied to metabolomics data. 
 `Building_network_data.ipynb` employs as input metabolomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (lx_extract_visit.R, lx_denovo_filter.R, lx_generate_pathway_level.R). 
