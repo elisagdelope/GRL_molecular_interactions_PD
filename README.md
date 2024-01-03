@@ -56,9 +56,20 @@ In the PPMI cohort:
 In the LuxPARK cohort:
 * `STITCH_cleansing.ipynb`, `KEGG_cleansing.ipynb`: Perform prunning in the original network of interactions to get only edges with medium confidence score in STITCH (>700). They also filter molecules mapping both to the metabolomics matrix and the MMI network, merging annotations based on multiple identifiers: PubChem, KEGG, ChEBI, inchikeys, CAS, SMILES.
 * `Building_network_data.ipynb`: A jupyter notebok that shows how to build a fully connected MMI network from pre-processed STITCH or KEGG database files matching a matrix of (log-transformed) metabolomics data.
+* `func_kegg_reactions.R`: Functions that download compounds and reactions data from kegg API, and subset relevant fields of information.
 
 *Unsupervised filters were not applied to metabolomics data. 
 `Building_network_data.ipynb` employs as input metabolomics and phenotypical data resulting from previous pre-processing scripts described in repository [statistical_analyses_cross_long_PD](https://gitlab.lcsb.uni.lu/elisa.gomezdelope/statistical_analyses_cross_long_pd) for **parsing data** and **Baseline (T0) PD/HC** (lx_extract_visit.R, lx_denovo_filter.R, lx_generate_pathway_level.R). 
 
+
+## Data
+
+The public transcriptomics data used in this project was derived from the Parkinson’s Progression Markers Initiative (https://www.ppmi-info.org/, RNAseq - IR3).
+The metabolomics data from LuxPARK is not publicly available as it is linked to the Luxembourg Parkinson’s Study and its internal regulations. Any requests for accessing the dataset can be directed to request.ncer-pd@uni.lu.
+
+
+## License
+
+The code is available under the MIT License (see `LICENSE`).
 
 
