@@ -1,7 +1,7 @@
 # Graph representation learning using molecular interaction networks for modelling omics data in Parkinson's disease 
 
 <div align="center"><tr><td align="center" width="9999">
-<img src="meta_data/MolInteraction_schema.png" alt="Schema of molecular interaction network modelling pipeline" width="80%" align="center">
+<img src="meta_data/MolInteraction_schema.png" alt="Schema of molecular interaction network modelling pipeline" width="60%" align="center">
 </td></tr></div>
 <!--![SSN GNN schema](meta_data/MolInteraction_schema.png) -->
 
