@@ -11,7 +11,7 @@ If something is not clear or you have any question, please [open an Issue](https
 
 
 ## Repository structure
-The analyses on both PPMI ans LuxPARK cohorts include some pre-processing steps prior to the modelling pipeline.
+The analyses on both PPMI ans LuxPARK cohorts include some pre-processing steps prior to the modelling pipeline. In addition, the analyses on PPMI include an R script and R functions to compute functional enrichment analysis on MeSH, KEGG and GO databases from the most relevant genes identified by the modeling pipeline. Corresponding scripts do not exist for LuxPARK because the functional analysis was done with MetaboAnalyst software.
 
 The main script to run the modelling pipeline, including model building, training, hyperparameter tunning and cross-validation, is the file executed by the wandb agent: `cv_wandb.py` (or `cv_wandb_DENOVO.py`). This file includes all the code necessary to extract the vector containing the omics profile of each patient, project it in the molecular interaction graph (PPI or MMI), read the hyperparameters defined from the wandb agent, train, and evaluate a GCN, GAT or ChebyNet model accordingly. The files it requires are in the same directory:
 * `utils.py`: Many utility functions, including those for network construction, training and evaluation, feature relevance, etc. 
