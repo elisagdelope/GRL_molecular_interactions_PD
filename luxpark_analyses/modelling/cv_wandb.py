@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # set random seeds
     random.seed(42)
     np.random.seed(42)
-    torch.manual_seed(42) # check
+    torch.manual_seed(42) 
     # parse args
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', dest='sweep_config', type=str)  # , default='configs/default.yaml'
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     y = labels["DIAGNOSIS"] #labels["DIAGNOSIS_PD"]
     y = y[y.index.isin(metab.index.to_list())]
 
-    undersampling=False # false for all PD ; True for de novo PD
+    undersampling=False 
     if undersampling:
         rus = RandomUnderSampler(random_state=42)
         X, y = rus.fit_resample(metab, y)
@@ -154,9 +154,6 @@ if __name__ == '__main__':
                                                    threshold=0.0001, patience=15,
                                                    verbose=True)
         n_epochs = myconfig.n_epochs
-        #losses, performance, best_epoch, best_loss, best_model = training(device, model, optimizer,
-        #                                                                scheduler, criterion, data,
-        #                                                                n_epochs, fold) # , embeddings
         losses, performance, best_epoch, best_loss, best_model = training(device, model, optimizer, scheduler, criterion, train_loader, val_loader, test_loader, n_epochs, fold, wandb)
 
         # feature importance: top k%
