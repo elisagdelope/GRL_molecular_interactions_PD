@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # set random seeds
     random.seed(42)
     np.random.seed(42)
-    torch.manual_seed(42) # check
+    torch.manual_seed(42) 
     # parse args
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', dest='sweep_config', type=str)  # , default='configs/default.yaml'
@@ -52,7 +52,6 @@ if __name__ == '__main__':
     # I/O
     OUT_DIR = "../results/wandb/"
     datestamp = date.today().strftime('%Y%m%d')
-    #OUT_DIR = OUT_DIR + "DENOVO_" + myconfig.model_name + "_" + datestamp + "/"
     if not os.path.exists(OUT_DIR):
         os.makedirs(OUT_DIR)
 
@@ -72,10 +71,10 @@ if __name__ == '__main__':
 
     # X and y
     labels = labels.reindex(metab.index) # set the same sample order in X, y
-    y = labels["DIAGNOSIS"] #labels["DIAGNOSIS_PD"]
+    y = labels["DIAGNOSIS"] 
     y = y[y.index.isin(metab.index.to_list())]
 
-    undersampling=True # false for all PD ; True for de novo PD
+    undersampling=True 
     if undersampling:
         rus = RandomUnderSampler(random_state=42)
         X, y = rus.fit_resample(metab, y)
@@ -160,9 +159,6 @@ if __name__ == '__main__':
                                                    threshold=0.0001, patience=15,
                                                    verbose=True)
         n_epochs = myconfig.n_epochs
-        #losses, performance, best_epoch, best_loss, best_model = training(device, model, optimizer,
-        #                                                                scheduler, criterion, data,
-        #                                                                n_epochs, fold) # , embeddings
         losses, performance, best_epoch, best_loss, best_model = training(device, model, optimizer, scheduler, criterion, train_loader, val_loader, test_loader, n_epochs, fold, wandb)
 
         # feature importance: top k%
