@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # set random seeds
     random.seed(42)
     np.random.seed(42)
-    torch.manual_seed(42) # check
+    torch.manual_seed(42) 
     # parse args
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', dest='sweep_config', type=str)  # , default='configs/default.yaml'
@@ -50,7 +50,6 @@ if __name__ == '__main__':
         dtypeLong = torch.LongTensor
         device = torch.device('cpu')
 
-#    undersampling = True
     # I/O
     OUT_DIR = "../results/wandb/"
     datestamp = date.today().strftime('%Y%m%d')
